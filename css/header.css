@@ -135,14 +135,17 @@ header {
   display: none;
   position: absolute;
   top: 100%;
-  left: -75%;
+  left: 0%;
   min-width: 200px;
   background-color: #50577a;
   padding: 10px;
-  border-radius: 10px;
-  text-align: center;
+  border-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
-
 .nav > li:hover > .submenu {
   display: block;
   animation: fade-in 0.3s ease forwards;
@@ -151,6 +154,13 @@ header {
 /* Стили для выпадающих меню */
 .submenu li {
   display: block;
+  padding: 8px 0;
+  border-bottom: rgb(179, 179, 179) 1px solid;
+  text-align: left;
+}
+.submenu li:last-child {
+  padding: 8px 0 0 0;
+  border-bottom: none;
 }
 
 .submenu li a {
@@ -216,15 +226,10 @@ h1 {
 
   /* Стили для выпадающего меню */
   .submenu {
-    display: none;
-    position: absolute;
     top: 100%;
-    left: -30%;
-    min-width: 140px;
-    background-color: #50577a;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
+    left: 0%;
+    min-width: 200px;
+    text-align: left;
   }
 
   .submenu li a:hover {
@@ -261,10 +266,35 @@ h1 {
 }
 
 @media (max-width: 768px) {
-   * {
+  * {
     font-size: calc(100% - 5%);
   }
-header{
-  padding: 10px 0;
+  header {
+    padding: 10px 0;
+  }
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+    background-color: #50577a;
+    border-radius: 10px;
+  }
+
+  .submenu li {
+    padding: 2px 0;
+  }
+  .submenu li:last-child {
+    padding: 2px 0 0 0;
+  }
 }
+@media (max-width: 480px) {
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: -55%;
+    min-width: 150px;
+    background-color: #50577a;
+    border-radius: 10px;
+  }
 }
