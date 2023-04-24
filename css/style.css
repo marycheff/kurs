@@ -1,300 +1,87 @@
-/*Обнуление*/
-* {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-:focus,
-:active {
-  outline: none;
-}
-a:focus,
-a:active {
-  outline: none;
-}
-nav,
-footer,
-header,
-aside {
-  display: block;
-}
-html,
-body {
-  height: 100%;
-  width: 100%;
-  font-size: 100%;
-  line-height: 1;
-  font-size: 14px;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-input,
-button,
-textarea {
-  font-family: inherit;
-}
-input::-ms-clear {
-  display: none;
-}
-button {
-  cursor: pointer;
-}
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
-a,
-a:visited {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
-}
-ul li {
-  list-style: none;
-}
-img {
-  vertical-align: top;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-} /*--------------------*/
-body {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: #4f5670;
-  font-size: 23px;
-  background-color: #fff;
-  line-height: 30px;
-}
-header {
-  background-color: #50577a;
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-    rgba(0, 0, 0, 0.09) 0px 32px 16px;
-  padding: 15px 0;
-  margin-bottom: 50px;
-  color: rgb(179, 179, 179);
-}
-/* Стили для верхнего уровня меню */
-.nav {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-  position: relative;
-}
-
-.nav > li {
-  position: relative;
-}
-
-.nav > li > a {
-  padding: 0 10px;
-  border-radius: 25px;
-  color: inherit;
-}
-
-.nav > li:hover > a {
-  background-color: rgb(179, 179, 179);
-  color: #50577a;
-  transition: all 0.5s ease;
-}
-
-.has-submenu > a::after {
-  content: "";
-  display: inline-block;
-  width: 0.3em;
-  height: 0.3em;
-  margin-left: 0.4em;
-  margin-bottom: 0.1em;
-  border-top: 0.1em solid currentColor;
-  border-right: 0.1em solid currentColor;
-  transform: rotate(-45deg);
-  transition: transform 0.25s ease;
-}
-
-.has-submenu:hover > a::after {
-  transform: rotate(135deg);
-}
-
-/* Стили для выпадающего меню */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0%;
-  min-width: 200px;
-  background-color: #50577a;
-  padding: 10px;
-  border-radius: 0px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-    rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
-.nav > li:hover > .submenu {
-  display: block;
-  animation: fade-in 0.3s ease forwards;
-}
-
-/* Стили для выпадающих меню */
-.submenu li {
-  display: block;
-  padding: 8px 0;
-  border-bottom: rgb(179, 179, 179) 1px solid;
-  text-align: left;
-}
-.submenu li:last-child {
-  padding: 8px 0 0 0;
-  border-bottom: none;
-}
-
-.submenu li a {
-  color: rgb(179, 179, 179);
-}
-
-.submenu li a:hover {
-  color: #50577a;
-  background-color: rgb(179, 179, 179);
-  border-radius: 10px;
-  padding: 0 5px;
-}
-
 h1 {
-  font-size: 30px;
-  margin-bottom: 60px;
-  font-weight: 800;
   text-align: center;
+}
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 50px;
+}
+
+.game {
+  position: relative;
+  padding: 20px;
+  border: 2px dotted #6b728e;
+  border-radius: 10px;
+}
+
+.game__title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #474e68;
   text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.game__overlay {
+  padding: 10px;
+  position: absolute; /* абсолютное позиционирование */
+  top: 0; /* прижать к верхней границе родительского элемента */
+  left: 0; /* прижать к левой границе родительского элемента */
+  width: 100%; /* занимать всю ширину родительского элемента */
+  height: 100%; /* занимать всю высоту родительского элемента */
+  background-color: rgba(0, 0, 0, 0.089);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  border-radius: 5px;
+  box-shadow: 10px 17px 25px 0px rgba(0, 0, 0, 0.486);
 }
 
-.container {
-  padding: 0 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+.game:hover .game__overlay {
+  opacity: 1; /* при наведении мыши увеличиваем прозрачность элемента */
 }
-
-@media (max-width: 960px) {
-  .container {
-    margin: 0;
-    padding: 0;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    margin: 0 15px;
-  }
-  /* Стили для верхнего уровня меню */
-  .nav {
-    display: flex;
-    justify-content: space-evenly;
-    list-style: none;
-    position: relative;
-  }
-
-  .nav > li {
-    position: relative;
-  }
-
-  .nav > li > a {
-    padding: 0 10px;
-    border-radius: 25px;
-    color: inherit;
-  }
-
-  .nav > li > a:hover {
-    background-color: #50577a;
-    color: rgb(179, 179, 179);
-    text-decoration: underline;
-  }
-
-  /* Стили для выпадающего меню */
-  .submenu {
-    top: 100%;
-    left: 0%;
-    min-width: 200px;
-    text-align: left;
-  }
-
-  .submenu li a:hover {
-    color: rgb(179, 179, 179);
-    background-color: #50577a;
-    text-decoration: underline;
-  }
-
-  /* Показываем выпадающее меню при наведении */
-  .nav > li:hover > .submenu {
-    display: block;
-    animation: fade-in 0.3s ease forwards;
-  }
-
-  /* Показываем/скрываем выпадающее меню при клике */
-  .nav > li:focus-within > .submenu {
-    display: block;
-    animation: fade-in 0.3s ease forwards;
-  }
-
-  .nav > li:not(:focus-within) > .submenu {
-    display: none;
-  }
-
-  /* Анимация появления меню */
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+.game:hover .game__title {
+  margin-bottom: 26px;
+  font-size: 20px;
+  transition: all 0.2s;
 }
-
+.game:not(:hover) .game__title {
+  margin-bottom: 30px;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+.game__img {
+  width: 100%;
+  height: auto;
+}
 @media (max-width: 768px) {
-  * {
-    font-size: calc(100% - 5%);
-  }
-  header {
-    padding: 10px 0;
-  }
-  .submenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 150px;
-    background-color: #50577a;
-    border-radius: 10px;
-  }
-
-  .submenu li {
-    padding: 2px 0;
-  }
-  .submenu li:last-child {
-    padding: 2px 0 0 0;
-  }
+.container {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-@media (max-width: 480px) {
-  .submenu {
-    position: absolute;
-    top: 100%;
-    left: -55%;
-    min-width: 150px;
-    background-color: #50577a;
-    border-radius: 10px;
-  }
+
+.game__overlay{
+  display: none;
+}
+.game:hover .game__title {
+margin-bottom: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+.game:not(:hover) .game__title {
+  margin-bottom: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+.game{
+  border: none;
+  margin-bottom: 60px;
+}
+.game__title{
+  padding-bottom: 5px;
+  border-bottom: 1px solid #404258;
+}
 }
