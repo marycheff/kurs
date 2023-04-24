@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/header.css" />
+    <link rel="stylesheet" href="progress-style.css" />
+    <title>Мой прогресс</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul class="nav">
+          <li><a href="../../index.html">Главная</a></li>
+          <li><a href="progress.html">Мой прогресс</a></li>
+          <li class="has-submenu">
+            <a href="#">Игры</a>
+            <ul class="submenu">
+              <li><a href="../../games/tic-tac/tictac.html">Крестики нолики</a></li>
+              <li><a href="../../games/dino/dino.html">Динозаврик</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>Мой прогресс</h1>
+       <h2>Крестики-нолики:</h2>
+      <div class="game">
+        <div class="tic-tac">
+          <p>Количество очков: <span class="tic-tac__num-of-points"></span></p>
+          <p>Количество побед: <span class="tic-tac__num-of-wins"></span></p>
+          <p>
+            Количество поражений: <span class="tic-tac__num-of-loses"></span>
+          </p>
+          <button class="tic-tac__reset">Сбросить всю статистику</button>
+        </div>
+        </div>
+        <h2>Динозаврик:</h2>
+        <div class="game">
+          <div class="dino">
+            <p>
+              Максимальное количество очков:
+              <span class="dino__record-points"></span>
+            </p>
+            <p>
+              Последнее количество очков :
+              <span class="dino__last-points"></span>
+            </p>
+            <button class="dino__reset">Сбросить всю статистику</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/my-progress_script.js"></script>
+  </body>
+</html>

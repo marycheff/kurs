@@ -1,0 +1,87 @@
+h1 {
+  text-align: center;
+}
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 50px;
+}
+
+.game {
+  position: relative;
+  padding: 20px;
+  border: 2px dotted #6b728e;
+  border-radius: 10px;
+}
+
+.game__title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #474e68;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.game__overlay {
+  padding: 10px;
+  position: absolute; /* абсолютное позиционирование */
+  top: 0; /* прижать к верхней границе родительского элемента */
+  left: 0; /* прижать к левой границе родительского элемента */
+  width: 100%; /* занимать всю ширину родительского элемента */
+  height: 100%; /* занимать всю высоту родительского элемента */
+  background-color: rgba(0, 0, 0, 0.089);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  border-radius: 5px;
+  box-shadow: 10px 17px 25px 0px rgba(0, 0, 0, 0.486);
+}
+
+.game:hover .game__overlay {
+  opacity: 1; /* при наведении мыши увеличиваем прозрачность элемента */
+}
+.game:hover .game__title {
+  margin-bottom: 26px;
+  font-size: 20px;
+  transition: all 0.2s;
+}
+.game:not(:hover) .game__title {
+  margin-bottom: 30px;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+.game__img {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+.container {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.game__overlay{
+  display: none;
+}
+.game:hover .game__title {
+margin-bottom: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+.game:not(:hover) .game__title {
+  margin-bottom: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+.game{
+  border: none;
+  margin-bottom: 60px;
+}
+.game__title{
+  padding-bottom: 5px;
+  border-bottom: 1px solid #404258;
+}
+}

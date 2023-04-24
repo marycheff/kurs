@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../games-style.css" />
+    <link rel="stylesheet" href="../../css/header.css" />
+    <title>Dino</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="nav">
+          <li><a href="../../index.html">Главная</a></li>
+          <li><a href="../../pages/my-progress/progress.html">Мой прогресс</a></li>
+          <li class="has-submenu">
+            <a href="#">Игры</a>
+            <ul class="submenu">
+              <li><a href="../tic-tac/tictac.html">Крестики нолики</a></li>
+              <li><a href="dino.html">Динозаврик</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="dino-game">
+        <div class="dino-game__dino"></div>
+        <div class="dino-game__cactus"></div>
+        <div class="dino-game__points"></div>
+      </div>
+      <button class="dino-start">Начать игру</button>
+      <div class="dino-result">.</div>
+      <div class="rules">
+        Знакомая игра Google динозаврик. Правила простые: перепрыгивайте кактусы
+        с помощью клавиш и получайте за это очки. За каждую секунду +10 очков.
+        Посмотреть свой рекорд вы можете на отдельной транице "Мой прогресс".
+        Там же вы можете обнулить свои очки.
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const dino = document.querySelector(".dino-game__dino");
+    const cactus = document.querySelector(".dino-game__cactus");
+    const startGame = document.querySelector(".dino-start");
+    const points = document.querySelector(".dino-game__points");
+    const result = document.querySelector(".dino-result");
+
+    //Если первый запуск
+    window.addEventListener("load", function () {
+      if (!localStorage.getItem("dino_user_record"))
+        localStorage.setItem("dino_user_record", 0);
+      if (!localStorage.getItem("dino_user_last_points"))
+        localStorage.setItem("dino_user_last_points", 0);
+    });
+
+    //Очки
+    let userPoints = localStorage.getItem("dino_user_record");
+    let lastUserPoints = localStorage.getItem("dino_user_last_points");
+    let numPoints = 0;
+    startGame.addEventListener("click", function () {
+      cactus.classList.add("start");
+      // const startCactus = document.querySelector(".start");
+
+      startGame.style.opacity = "0";
+      startGame.style.visibility = "hidden";
+
+      document.addEventListener("keydown", function () {
+        jump();
+      });
+      let isAlive = setInterval(function () {
+        numPoints = numPoints + 0.1;
+
+        // if (numPoints >= 39) startCactus.style.animationDuration = ".8s";
+        // // if (numPoints > 84) startCactus.style.animationDuration = "2s";
+        // // if (numPoints > 130) startCactus.style.animationDuration = "0.58s";
+        // // if (numPoints > 134) startCactus.style.animationDuration = "0.56s";
+        // // if (numPoints > 144) startCactus.style.animationDuration = "0.54s";
+
+        let dinoTop = parseInt(
+          window.getComputedStyle(dino).getPropertyValue("top")
+        );
+        let cactusLeft = parseInt(
+          window.getComputedStyle(cactus).getPropertyValue("left")
+        );
+        points.innerHTML = Math.round(numPoints);
+
+        //Если проиграл
+        if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
+          clearInterval(isAlive);
+
+          dino.style.animation = "none";
+          cactus.style.animation = "none";
+
+          cactus.classList.remove("start");
+          dino.classList.remove("jump");
+
+          // startGame.style.display = "block"; // показываем кнопку "Начать игру" снова
+          startGame.style.opacity = "1";
+          startGame.style.visibility = "visible";
+          startGame.innerHTML = "Начать сначала";
+
+          result.style.opacity = "1";
+          result.style.visibility = "visible";
+
+          //в каком падеже писать
+          let correctForm;
+          if (
+            Math.round(numPoints) === 1 ||
+            (Math.round(numPoints) % 10 === 1 && Math.round(numPoints) !== 11)
+          ) {
+            correctForm = "очко";
+          } else if (
+            Math.round(numPoints) === 0 ||
+            (Math.round(numPoints) % 10 >= 5 &&
+              Math.round(numPoints) % 10 <= 9) ||
+            (Math.round(numPoints) % 100 >= 11 &&
+              Math.round(numPoints) % 100 <= 14)
+          ) {
+            correctForm = "очков";
+          } else {
+            correctForm = "очка";
+          }
+          result.innerHTML = `Вы заработали ${Math.round(numPoints)} ${correctForm}`;
+
+          localStorage.setItem(
+            "dino_user_last_points",
+            Math.round(numPoints) + 1
+          );
+
+          if (Math.round(numPoints) + 1 > userPoints) {
+            localStorage.setItem("dino_user_record", Math.round(numPoints));
+            result.innerHTML += ". Это новый рекорд!";
+          }
+
+          cactus.style.left = "580px"; // устанавливаем начальную позицию кактуса
+          startGame.addEventListener("click", function () {
+            location.reload();
+          });
+        }
+      }, 10);
+    });
+    function jump() {
+      if (dino.classList != "jump") dino.classList.add("jump");
+      setTimeout(() => {
+        dino.classList.remove("jump");
+      }, 300);
+    }
+  </script>
+</html>

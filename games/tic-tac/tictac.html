@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../games-style.css" />
+    <link rel="stylesheet" href="../../css/header.css" />
+    <link
+      rel="shortcut icon"
+      href="../../img/favicon.png"
+      type="image/x-icon" />
+    <title>Крестики-нолики</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="nav">
+          <li><a href="../../index.html">Главная</a></li>
+          <li><a href="../../pages/my-progress/progress.html">Мой прогресс</a></li>
+          <li class="has-submenu">
+            <a href="#">Игры</a>
+            <ul class="submenu">
+              <li><a href="tictac.html">Крестики нолики</a></li>
+              <li><a href="../dino/dino.html">Динозаврик</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>Крестики-нолики</h1>
+      <div class="tictac-board">
+        <div class="tictac-cell" id="cell-0"></div>
+        <div class="tictac-cell" id="cell-1"></div>
+        <div class="tictac-cell" id="cell-2"></div>
+        <div class="tictac-cell" id="cell-3"></div>
+        <div class="tictac-cell" id="cell-4"></div>
+        <div class="tictac-cell" id="cell-5"></div>
+        <div class="tictac-cell" id="cell-6"></div>
+        <div class="tictac-cell" id="cell-7"></div>
+        <div class="tictac-cell" id="cell-8"></div>
+      </div>
+      <div class="tictac-result"></div>
+      <button class="tictac-reset">Начать сначала</button>
+      <div class="rules">
+        Обычная игра крестики-нолики. Пользователь играет за крестики, если он
+        победит, то ему добавляется 10 очков, а если проиграет, то убавляется 10
+        очков. Детальнее посмотреть свой прогресс вы можете на отдельной транице
+        "Мой прогресс". Там же вы можете обнулить свои очки
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

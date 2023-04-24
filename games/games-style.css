@@ -1,0 +1,225 @@
+* {
+  text-align: center;
+}
+/* КРЕСТИКИ-НОЛИКИ */
+.tictac-board {
+  color: #212121;
+  display: flex;
+  flex-wrap: wrap;
+  width: 495px;
+  height: 495px;
+  margin: auto;
+  box-shadow: 5px 9px 20px -5px rgba(0, 0, 0, 0.27);
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.tictac-cell {
+  width: 165px;
+  height: 165px;
+  background: #e8e8e8b7;
+  border: 1px solid #00000077;
+  font-size: 160px;
+  text-align: center;
+  line-height: 175px;
+  cursor: pointer;
+  color: rgb(121, 62, 62);
+}
+.tictac-cell.X {
+  color: rgb(85, 119, 85);
+}
+
+.tictac-cell:hover {
+  background-color: #0000001f;
+}
+#cell-0 {
+  border-top-left-radius: 15px;
+}
+#cell-2 {
+  border-top-right-radius: 15px;
+}
+#cell-6 {
+  border-bottom-left-radius: 15px;
+}
+#cell-8 {
+  border-bottom-right-radius: 15px;
+}
+.winning-cell {
+  background-color: rgb(255, 255, 189);
+}
+.winning-cell:hover {
+  background-color: rgb(255, 255, 189);
+}
+.tictac-result {
+  display: inline;
+  text-align: center;
+  font-size: 30px;
+  padding: 10px;
+  font-weight: 800;
+  opacity: 0;
+  visibility: hidden;
+}
+.tictac-reset {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ОБЩИЕ СТИЛИ (КНОПКИ СБРОСА) */
+.tictac-reset,
+.dino-start {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  font-size: 20px;
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+  color: #4f5670;
+}
+
+.tictac-reset::before,
+.dino-start::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #6b728e;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 220ms;
+}
+
+.tictac-reset:hover,
+.dino-start:hover {
+  color: #e8e8e8;
+}
+
+.tictac-reset:hover::before,
+.dino-start:hover::before {
+  width: 100%;
+}
+
+.rules {
+  margin: auto;
+  width: 50%;
+  font-size: 15px;
+  margin-top: 45px;
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 24px;
+  background-color: #6b728e;
+  color: rgb(218, 218, 218);
+}
+/* ============= */
+
+/* ДИНОЗАВРИК */
+
+.dino-start {
+  margin-top: 80px;
+}
+
+.dino-game {
+  width: 600px;
+  height: 200px;
+  border-bottom: 1px solid #000;
+  margin: auto;
+}
+.dino-game__dino {
+  width: 50px;
+  height: 50px;
+  background-image: url("../img/dino.png");
+  background-size: 50px 50px;
+  position: relative;
+  top: 150px;
+}
+.dino-game__cactus {
+  width: 23px;
+  height: 46px;
+  background-image: url("../img/cactus.png");
+  background-size: 23px 46px;
+  position: relative;
+  top: 105px;
+  left: 580px;
+}
+
+.dino-game__points {
+  font-size: 15px;
+  text-align-last: right;
+}
+
+.dino-result {
+  margin-top: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1.7s;
+}
+.start {
+  animation: cactusMov 0.85s infinite linear;
+}
+
+@keyframes cactusMov {
+  0% {
+    left: 580px;
+  }
+  100% {
+    left: -20px;
+  }
+}
+
+.jump {
+  animation: jump 0.3s linear;
+}
+@keyframes jump {
+  0% {
+    top: 160px;
+  }
+  30% {
+    top: 135px;
+  }
+  50% {
+    top: 80px;
+  }
+  80% {
+    top: 130px;
+  }
+  100% {
+    top: 150px;
+  }
+}
+
+@media (max-width: 960px) {
+  .rules {
+    width: 90%;
+    font-size: 20px;
+    line-height: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tictac-board {
+    width: 375px;
+    height: 375px;
+  }
+  .tictac-cell {
+    width: 125px;
+    height: 125px;
+    font-size: 120px;
+    line-height: 135px;
+  }
+  .dino-game {
+    overflow: hidden;
+  }
+}

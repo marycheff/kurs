@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
+      rel="stylesheet" />
+    <title>Главная стр</title>
+  </head>
+  <body>
+    <header>
+        <ul class="nav">
+          <li><a href="./index.html">Главная</a></li>
+          <li><a href="pages/my-progress/progress.html">Мой прогресс</a></li>
+          <li class="has-submenu">
+            <a href="#">Игры</a>
+            <ul class="submenu">
+              <li><a href="games/tic-tac/tictac.html">Крестики нолики</a></li>
+              <li><a href="games/dino/dino.html">Динозаврик</a></li>
+            </ul>
+          </li>
+        </ul>
+    </header>
+
+    <div class="container">
+      <h1>Все игры</h1>
+      <div class="games">
+        <div class="game">
+          <a href="games/tic-tac/tictac.html">
+            <div class="game__title">Крестики-нолики</div>
+            <img class="game__img" src="img/tictac.png" alt="" />
+            <div class="game__overlay"></div>
+          </a>
+        </div>
+        <div class="game">
+          <a href="games/dino/dino.html">
+            <div class="game__title">Динозаврик</div>
+            <img class="game__img" src="img/dino_preview.jpg" alt="" />
+            <div class="game__overlay"></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
