@@ -189,6 +189,7 @@ h1 {
 }
 
 @media (max-width: 960px) {
+  
   .container {
     margin: 0;
     padding: 0;
@@ -266,17 +267,18 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  * {
-    font-size: calc(100% - 3%);
-  }
+
+   header {
+    font-size: calc(100% - 20%);
+  } 
   header {
     padding: 10px 0;
   }
   .submenu {
     position: absolute;
     top: 100%;
-    left: 0;
-    min-width: 150px;
+    left: -55%;
+    min-width: 160px;
     background-color: #50577a;
     border-radius: 10px;
   }
@@ -289,8 +291,8 @@ h1 {
   }
 }
 @media (max-width: 480px) {
-  * {
-    font-size: calc(100% - 7%);
+  header {
+    padding: 7px 0;
   }
   .submenu {
     top: 100%;
