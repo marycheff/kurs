@@ -130,7 +130,6 @@ header {
   transform: rotate(135deg);
 }
 
-
 /* Стили для выпадающего меню */
 .submenu {
   display: none;
@@ -155,7 +154,7 @@ header {
 }
 
 .submenu li a {
-color: rgb(179, 179, 179);
+  color: rgb(179, 179, 179);
 }
 
 .submenu li a:hover {
@@ -192,67 +191,80 @@ h1 {
     margin: 0 15px;
   }
   /* Стили для верхнего уровня меню */
-.nav {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-  position: relative;
-}
-
-.nav > li {
-  position: relative;
-}
-
-.nav > li > a {
-  padding: 0 10px;
-  border-radius: 25px;
-  color: inherit;
-}
-
-.nav > li > a:hover {
-  background-color: rgb(179, 179, 179);
-  color: #50577a;
-  transition: all 0.5s ease;
-}
-
-/* Стили для выпадающего меню */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: -30%;
-  min-width: 140px;
-  background-color: #50577a;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 15px;
-}
-
-/* Показываем выпадающее меню при наведении */
-.nav > li:hover > .submenu {
-  display: block;
-  animation: fade-in 0.3s ease forwards;
-}
-
-/* Показываем/скрываем выпадающее меню при клике */
-.nav > li:focus-within > .submenu {
-  display: block;
-  animation: fade-in 0.3s ease forwards;
-}
-
-.nav > li:not(:focus-within) > .submenu {
-  display: none;
-}
-
-/* Анимация появления меню */
-@keyframes fade-in {
-  from {
-    opacity: 0;
+  .nav {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    position: relative;
   }
-  to {
-    opacity: 1;
+
+  .nav > li {
+    position: relative;
+  }
+
+  .nav > li > a {
+    padding: 0 10px;
+    border-radius: 25px;
+    color: inherit;
+  }
+
+  .nav > li > a:hover {
+    background-color: #50577a;
+    color: rgb(179, 179, 179);
+    text-decoration: underline;
+  }
+
+  /* Стили для выпадающего меню */
+  .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -30%;
+    min-width: 140px;
+    background-color: #50577a;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .submenu li a:hover {
+    color: rgb(179, 179, 179);
+    background-color: #50577a;
+    text-decoration: underline;
+  }
+
+  /* Показываем выпадающее меню при наведении */
+  .nav > li:hover > .submenu {
+    display: block;
+    animation: fade-in 0.3s ease forwards;
+  }
+
+  /* Показываем/скрываем выпадающее меню при клике */
+  .nav > li:focus-within > .submenu {
+    display: block;
+    animation: fade-in 0.3s ease forwards;
+  }
+
+  .nav > li:not(:focus-within) > .submenu {
+    display: none;
+  }
+
+  /* Анимация появления меню */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }
 
+@media (max-width: 768px) {
+   * {
+    font-size: calc(100% - 5%);
+  }
+header{
+  padding: 10px 0;
+}
 }
